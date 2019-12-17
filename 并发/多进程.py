@@ -13,12 +13,12 @@ def task(q, l, task_id):
     # file_name = str(random.random()) + ".txt"
     # a = open(file_name, "w")
     # a.close()
-    l.acquire()
+    # l.acquire()
     if random.random() > 0.8:
         q.put("%2d: fail" % task_id)
     else:
         q.put("%2d: pass" % task_id)
-    l.release()
+    # l.release()
     print("task %s finish " % (os.getpid()))
 
 
@@ -27,7 +27,7 @@ if __name__ == '__main__':
     number_per_board = 24        # 一批数量
     pool = mp.Pool(number_per_board)       # 同时运行的进程数量
     manager = mp.Manager()
-    result_queue = manager.Queue()
+    result_queue = manager.Queue()      # 与父进程通信用
     lock = manager.Lock()
     start = time.time()
     for i in range(1, number_per_board + 1):
