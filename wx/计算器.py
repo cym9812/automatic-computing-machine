@@ -35,7 +35,7 @@ class Calculator ( wx.Frame ):
 
         self.SetSizer( bSizer2 )
         self.Layout()
-
+        self.SetBackgroundColour(wx.Colour(224, 224, 224))
         self.Centre( wx.BOTH )
 
         self.compute.Bind(wx.EVT_BUTTON, self.compute_result)
@@ -43,15 +43,22 @@ class Calculator ( wx.Frame ):
     def __del__( self ):
         pass
 
-    def compute_result(self, event):
-        if self.operator.GetValue() == "+":
-            self.result.SetValue(str(int(self.number1.GetValue()) + int(self.number2.GetValue())))
-        elif self.operator.GetValue() == "-":
-            self.result.SetValue(str(int(self.number1.GetValue()) - int(self.number2.GetValue())))
-        elif self.operator.GetValue() == "*":
-            self.result.SetValue(str(int(self.number1.GetValue()) * int(self.number2.GetValue())))
+    def check_input(self):
+        if self.number1.GetValue() != '' and self.number2.GetValue() != '':
+            return True
         else:
-            self.result.SetValue(str(int(self.number1.GetValue()) / int(self.number2.GetValue())))
+            return False
+
+    def compute_result(self, event):
+        if self.check_input():
+            if self.operator.GetValue() == "+":
+                self.result.SetValue(str(int(self.number1.GetValue()) + int(self.number2.GetValue())))
+            elif self.operator.GetValue() == "-":
+                self.result.SetValue(str(int(self.number1.GetValue()) - int(self.number2.GetValue())))
+            elif self.operator.GetValue() == "*":
+                self.result.SetValue(str(int(self.number1.GetValue()) * int(self.number2.GetValue())))
+            else:
+                self.result.SetValue(str(int(self.number1.GetValue()) / int(self.number2.GetValue())))
 
 
 if __name__ == '__main__':
