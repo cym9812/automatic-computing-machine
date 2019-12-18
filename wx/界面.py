@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
-
+import random
+import sys
+import time
+import threading
+import multiprocessing as mp
 import wx
 import wx.grid
 import wx.xrc
-import time
 
 
 class Mainframe(wx.Frame):
@@ -190,7 +193,7 @@ class Mainframe(wx.Frame):
             self.m_panel5, wx.ID_ANY, u"测试状态"), wx.VERTICAL)
 
         self.m_textCtrl20 = wx.TextCtrl(test_stat.GetStaticBox(
-        ), wx.ID_ANY, u"未开始", wx.DefaultPosition, wx.DefaultSize, wx.TE_CENTER)
+        ), wx.ID_ANY, u"未开始", wx.DefaultPosition, wx.DefaultSize, wx.TE_CENTER | wx.TE_READONLY)
         test_stat.Add(self.m_textCtrl20, 0, wx.ALL |
                       wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL, 5)
 
@@ -290,41 +293,10 @@ class Mainframe(wx.Frame):
         test_detail = wx.StaticBoxSizer(wx.StaticBox(
             self.m_panel9, wx.ID_ANY, u"测试列状态"), wx.VERTICAL)
 
-        gSizer2 = wx.GridSizer(0, 6, 0, 0)
-
-        self.gauge1 = wx.Gauge(test_detail.GetStaticBox(
-        ), wx.ID_ANY, 100, wx.DefaultPosition, wx.DefaultSize, wx.GA_HORIZONTAL | wx.GA_SMOOTH)
-        self.gauge1.SetValue(0)
-        gSizer2.Add(self.gauge1, 0, wx.ALL | wx.EXPAND, 5)
-
-        self.gauge2 = wx.Gauge(test_detail.GetStaticBox(
-        ), wx.ID_ANY, 100, wx.DefaultPosition, wx.DefaultSize, wx.GA_HORIZONTAL | wx.GA_SMOOTH)
-        self.gauge2.SetValue(0)
-        gSizer2.Add(self.gauge2, 0, wx.ALL | wx.EXPAND, 5)
-
-        self.gauge3 = wx.Gauge(test_detail.GetStaticBox(
-        ), wx.ID_ANY, 100, wx.DefaultPosition, wx.DefaultSize, wx.GA_HORIZONTAL | wx.GA_SMOOTH)
-        self.gauge3.SetValue(0)
-        gSizer2.Add(self.gauge3, 0, wx.ALL | wx.EXPAND, 5)
-
-        self.gauge4 = wx.Gauge(test_detail.GetStaticBox(
-        ), wx.ID_ANY, 100, wx.DefaultPosition, wx.DefaultSize, wx.GA_HORIZONTAL | wx.GA_SMOOTH)
-        self.gauge4.SetValue(0)
-        gSizer2.Add(self.gauge4, 0, wx.ALL | wx.EXPAND, 5)
-
-        self.gauge5 = wx.Gauge(test_detail.GetStaticBox(
-        ), wx.ID_ANY, 100, wx.DefaultPosition, wx.DefaultSize, wx.GA_HORIZONTAL | wx.GA_SMOOTH)
-        self.gauge5.SetValue(0)
-        gSizer2.Add(self.gauge5, 0, wx.ALL | wx.EXPAND, 5)
-
-        self.gauge6 = wx.Gauge(test_detail.GetStaticBox(
-        ), wx.ID_ANY, 100, wx.DefaultPosition, wx.DefaultSize, wx.GA_HORIZONTAL | wx.GA_SMOOTH)
-        self.gauge6.SetValue(0)
-        gSizer2.Add(self.gauge6, 0, wx.ALL | wx.EXPAND, 5)
-        self.gauge_list = [self.gauge1, self.gauge2,
-                           self.gauge3, self.gauge4, self.gauge5, self.gauge6]
-
-        test_detail.Add(gSizer2, 1, wx.EXPAND, 5)
+        self.gauge = wx.Gauge(test_detail.GetStaticBox(), wx.ID_ANY, 100, wx.DefaultPosition, wx.DefaultSize,
+                              wx.GA_HORIZONTAL | wx.GA_SMOOTH)
+        self.gauge.SetValue(0)
+        test_detail.Add(self.gauge, 0, wx.ALL | wx.EXPAND, 5)
 
         self.m_panel9.SetSizer(test_detail)
         self.m_panel9.Layout()
@@ -358,22 +330,58 @@ class Mainframe(wx.Frame):
         self.button_start.Bind(wx.EVT_LEFT_DOWN, self.start_test)
         self.button_stop.Bind(wx.EVT_LEFT_DOWN, self.stop_test)
         self.button_quit.Bind(wx.EVT_LEFT_DOWN, self.quit_test)
+        self.t = threading.Thread
+        self.control_queue = mp.Queue()
 
     def __del__(self):
         pass
 
+    def update_gauge(self, cq):
+        q = mp.Queue()
+        t = threading.Thread(target=timer, args=(q, cq))
+        t.start()
+        temp = 0
+        while temp != "finish" and cq.empty():
+            self.gauge.SetValue(temp)
+            temp = q.get()
+        self.m_textCtrl20.SetLabel("已完成")
+        self.m_textCtrl20.SetBackgroundColour(wx.Colour(0, 255, 0))
+
     # Virtual event handlers, overide them in your derived class
     def start_test(self, event):
-        self.gauge_list[self.count % 6].SetValue(100)
-        self.count += 1
+        while not self.control_queue.empty():       # 清空
+            self.control_queue.get()
+        self.m_textCtrl20.SetBackgroundColour(wx.Colour(255, 255, 0))
+        self.m_textCtrl20.SetLabel("进行中")
+        self.t = threading.Thread(target=self.update_gauge, args=(self.control_queue,))
+        self.t.start()
+
+        '''
+        self.gauge.SetValue(100)
+        self.m_textCtrl20.SetBackgroundColour(wx.Colour(0, 255, 0))
+        self.m_textCtrl20.SetLabel("进行中")
+        '''
 
     def stop_test(self, event):
-        for i in self.gauge_list:
-            i.SetValue(0)
-        self.count = 0
+        self.control_queue.put("stop")
+        self.gauge.SetValue(0)
+        self.m_textCtrl20.SetBackgroundColour(wx.Colour(255, 255, 255))
+        self.m_textCtrl20.SetLabel("未开始")
 
     def quit_test(self, event):
-        event.Skip()
+        sys.exit(0)
+
+
+def timer(q, cq):
+    count = 0
+    while count < 100 and cq.empty():
+        count += random.randrange(1, 31)
+        if count > 100:
+            count = 100
+        print(count)
+        q.put(count)
+        time.sleep(1)
+    q.put("finish")
 
 
 if __name__ == '__main__':
