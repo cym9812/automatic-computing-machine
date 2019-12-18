@@ -31,7 +31,7 @@ if __name__ == '__main__':
     lock = manager.Lock()
     start = time.time()
     for i in range(1, number_per_board + 1):
-        pool.apply_async(task, args=([result_queue, lock, i, ]))
+        pool.apply_async(task, args=(result_queue, lock, i, ))
     print('Waiting for all subprocesses done...')
     pool.close()
     pool.join()
