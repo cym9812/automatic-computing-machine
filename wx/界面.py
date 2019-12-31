@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
+import multiprocessing as mp
 import random
 import sys
-import time
 import threading
-import multiprocessing as mp
+import time
+
 import wx
 import wx.grid
 import wx.xrc
@@ -14,7 +15,16 @@ class Mainframe(wx.Frame):
     def __init__(self, parent):
         wx.Frame.__init__(self, parent, id=wx.ID_ANY, title=wx.EmptyString, pos=wx.DefaultPosition, size=wx.Size(
             1280, 800), style=wx.DEFAULT_FRAME_STYLE | wx.TAB_TRAVERSAL)
+        self.init_ui()
+        # Connect Events
+        self.button_start.Bind(wx.EVT_LEFT_DOWN, self.start_test)
+        self.button_stop.Bind(wx.EVT_LEFT_DOWN, self.stop_test)
+        self.button_quit.Bind(wx.EVT_LEFT_DOWN, self.quit_test)
+        self.count = 0
+        self.t = threading.Thread
+        self.control_queue = mp.Queue()
 
+    def init_ui(self):
         self.SetSizeHints(wx.DefaultSize, wx.DefaultSize)
         self.SetForegroundColour(
             wx.SystemSettings.GetColour(wx.SYS_COLOUR_WINDOW))
@@ -324,14 +334,6 @@ class Mainframe(wx.Frame):
         self.Layout()
 
         self.Centre(wx.BOTH)
-        self.count = 0
-
-        # Connect Events
-        self.button_start.Bind(wx.EVT_LEFT_DOWN, self.start_test)
-        self.button_stop.Bind(wx.EVT_LEFT_DOWN, self.stop_test)
-        self.button_quit.Bind(wx.EVT_LEFT_DOWN, self.quit_test)
-        self.t = threading.Thread
-        self.control_queue = mp.Queue()
 
     def __del__(self):
         pass
@@ -344,12 +346,13 @@ class Mainframe(wx.Frame):
         while temp != "finish" and cq.empty():
             self.gauge.SetValue(temp)
             temp = q.get()
-        self.m_textCtrl20.SetLabel("已完成")
-        self.m_textCtrl20.SetBackgroundColour(wx.Colour(0, 255, 0))
+        if cq.empty():
+            self.m_textCtrl20.SetLabel("已完成")
+            self.m_textCtrl20.SetBackgroundColour(wx.Colour(0, 255, 0))
 
     # Virtual event handlers, overide them in your derived class
     def start_test(self, event):
-        while not self.control_queue.empty():       # 清空
+        while not self.control_queue.empty():  # 清空
             self.control_queue.get()
         self.m_textCtrl20.SetBackgroundColour(wx.Colour(255, 255, 0))
         self.m_textCtrl20.SetLabel("进行中")
