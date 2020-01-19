@@ -1,0 +1,684 @@
+    '*****************************************************************************************************************
+    ' V110=A5Q20002461/A;1-TRANS_NPN_BC846B_65V_100mA_SOT-023-3_SMD x 2
+    '*****************************************************************************************************************
+    'V110/BE
+    Test_Name = "V110/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP113) B=(TP112) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V110/ON
+    Test_Name = "V110/ON"
+    Test_Method_Set_Mux = "A=(TP112) B=(TP115) C=(TP113) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP112) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP115) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP112)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V110/OFF
+    Test_Name = "V110/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP112) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP115) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP112)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+    '*****************************************************************************************************************
+    ' V120=A5Q00020517/01;1-TRANSISTOR_BIPOLOR_NPN_45V_500MA_ x 1
+    '*****************************************************************************************************************
+    'V120/BE
+    Test_Name = "V120/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP118) B=(TP106) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V120/ON
+    Test_Name = "V120/ON"
+    Test_Method_Set_Mux = "A=(TP106) B=(TP127) C=(TP118) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP106) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP127) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP106)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V120/OFF
+    Test_Name = "V120/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP106) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP127) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP106)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+    '*****************************************************************************************************************
+    ' V141=A5Q00000584/01;1-TRANSISTOR_ENH-N_100V_170MA_6OHM_ x 1
+    '*****************************************************************************************************************
+    'V141/BE
+    Test_Name = "V141/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP146) B=(TP131) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V141/ON
+    Test_Name = "V141/ON"
+    Test_Method_Set_Mux = "A=(TP131) B=(TP148) C=(TP146) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP131) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP148) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP131)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V141/OFF
+    Test_Name = "V141/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP131) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP148) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP131)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+    '*****************************************************************************************************************
+    ' V157=A5Q20002461/A;1-TRANS_NPN_BC846B_65V_100mA_SOT-023-3_SMD x 2
+    '*****************************************************************************************************************
+    'V157/BE
+    Test_Name = "V157/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP103) B=(TP106) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V157/ON
+    Test_Name = "V157/ON"
+    Test_Method_Set_Mux = "A=(TP106) B=(TP111) C=(TP103) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP106) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP111) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP106)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V157/OFF
+    Test_Name = "V157/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP106) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP111) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP106)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+    '*****************************************************************************************************************
+    ' V200/1=A5Q20008929/A;1-TRANS_PNP_ARRAY_60V_100mA_SOT-563_SMD x 2
+    '*****************************************************************************************************************
+    'V200/1/BE
+    Test_Name = "V200/1/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP205) B=(TP210) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V200/1/ON
+    Test_Name = "V200/1/ON"
+    Test_Method_Set_Mux = "A=(TP210) B=(TP217) C=(TP205) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP210) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP217) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP210)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V200/1/OFF
+    Test_Name = "V200/1/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP210) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP217) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP210)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+
+    '*****************************************************************************************************************
+    ' V202/1=A5Q20008390/A;1-TRANS_FET_E_N_60V_73mA_13.5R_SOT-363_SMD x 6
+    '*****************************************************************************************************************
+    'V202/1/BE
+    Test_Name = "V202/1/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP208) B=(TP219) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V202/1/ON
+    Test_Name = "V202/1/ON"
+    Test_Method_Set_Mux = "A=(TP219) B=(TP250) C=(TP208) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP219) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP250) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP219)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V202/1/OFF
+    Test_Name = "V202/1/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP219) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP250) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP219)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+
+    '*****************************************************************************************************************
+    ' V203/1=A5Q20008390/A;1-TRANS_FET_E_N_60V_73mA_13.5R_SOT-363_SMD x 6
+    '*****************************************************************************************************************
+    'V203/1/BE
+    Test_Name = "V203/1/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP229) B=(TP239) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V203/1/ON
+    Test_Name = "V203/1/ON"
+    Test_Method_Set_Mux = "A=(TP239) B=(TP250) C=(TP229) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP239) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP250) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP239)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V203/1/OFF
+    Test_Name = "V203/1/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP239) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP250) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP239)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+
+    '*****************************************************************************************************************
+    ' V204/1=A5Q20008390/A;1-TRANS_FET_E_N_60V_73mA_13.5R_SOT-363_SMD x 6
+    '*****************************************************************************************************************
+    'V204/1/BE
+    Test_Name = "V204/1/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP206) B=(TP213) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V204/1/ON
+    Test_Name = "V204/1/ON"
+    Test_Method_Set_Mux = "A=(TP213) B=(TP201) C=(TP206) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP213) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP201) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP213)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V204/1/OFF
+    Test_Name = "V204/1/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP213) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP201) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP213)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+
+    '*****************************************************************************************************************
+    ' V215/1=A5Q20008391/A;1-TRANS_FET_E_P_60V_-2.6_0.08R_SO-8_SMD x 2
+    '*****************************************************************************************************************
+    'V215/1/BE
+    Test_Name = "V215/1/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP215) B=(TP224) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V215/1/ON
+    Test_Name = "V215/1/ON"
+    Test_Method_Set_Mux = "A=(TP224) B=(TP216) C=(TP215) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP224) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP216) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP224)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V215/1/OFF
+    Test_Name = "V215/1/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP224) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP216) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP224)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+
+    '*****************************************************************************************************************
+    ' V300/1=A5Q20008390/A;1-TRANS_FET_E_N_60V_73mA_13.5R_SOT-363_SMD x 6
+    '*****************************************************************************************************************
+    'V300/1/BE
+    Test_Name = "V300/1/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP301) B=(TP305) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V300/1/ON
+    Test_Name = "V300/1/ON"
+    Test_Method_Set_Mux = "A=(TP305) B=(TP201) C=(TP301) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP305) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP201) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP305)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V300/1/OFF
+    Test_Name = "V300/1/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP305) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP201) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP305)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+
+    '*****************************************************************************************************************
+    ' V302/1=A5Q20008932/A;1-TRANS_FET_E_P_60V_500mA_4R_SC-89_SMD x 2
+    '*****************************************************************************************************************
+    'V302/1/BE
+    Test_Name = "V302/1/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP303) B=(TP307) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V302/1/ON
+    Test_Name = "V302/1/ON"
+    Test_Method_Set_Mux = "A=(TP307) B=(TP204) C=(TP303) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP307) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP204) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP307)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V302/1/OFF
+    Test_Name = "V302/1/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP307) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP204) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP307)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+
+    '*****************************************************************************************************************
+    ' V400=A5Q20006720/A;1-TRANS_NPN_60V_1A_SOT-089_SMD x 1
+    '*****************************************************************************************************************
+    'V400/BE
+    Test_Name = "V400/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP204) B=(TP???) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V400/ON
+    Test_Name = "V400/ON"
+    Test_Method_Set_Mux = "A=(TP???) B=(TP400) C=(TP204) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP???) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP400) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP???)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V400/OFF
+    Test_Name = "V400/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP???) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP400) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP???)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+    '*****************************************************************************************************************
+    ' V154/1=A5Q00002665/01;1-TRANS_FET_S_N_60V_2.6A_0R1_SO-08_SMD x 1
+    '*****************************************************************************************************************
+    'V154/1/BE
+    Test_Name = "V154/1/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=(TP105) B=(TP102) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V154/1/ON
+    Test_Name = "V154/1/ON"
+    Test_Method_Set_Mux = "A=(TP102) B=(TP106) C=(TP105) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP102) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=(TP106) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=(TP102)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    'V154/1/OFF
+    Test_Name = "V154/1/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=(TP102) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=(TP106) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=(TP102)"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
+

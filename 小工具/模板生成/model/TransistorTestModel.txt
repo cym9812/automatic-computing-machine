@@ -1,0 +1,52 @@
+    '*****************************************************************************************************************
+    ' (name)=(description)
+    '*****************************************************************************************************************
+    '(name)/BE
+    Test_Name = "(name)/BE"
+    Test_Method = "5mA DC=10ms Vmax=1.2V Delay=10ms MV=630mV Min=550mV Max=750mV  A=((tp1)) B=((tp3)) "
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '(name)/ON
+    Test_Name = "(name)/ON"
+    Test_Method_Set_Mux = "A=((tp3)) B=((tp2)) C=((tp1)) "
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=((tp3)) C=(GND)"
+    Test_Method_Stim2 = "V=-2000mV DC B=((tp2)) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS MV=200mV Min=-200mV Max=400mV A=((tp3))"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Set_Mux(Test_Method_Set_Mux)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    '(name)/OFF
+    Test_Name = "(name)/OFF"
+    Test_Method_Stim1 = "V=2000mV I=5mA DC A=((tp3)) C=(GND)"
+    Test_Method_Stim2 = "V=0mV DC B=((tp2)) C=(GND)"
+    Test_Method = "DC=10ms Delay=10mS  MV=2000mV Tol=+-5 A=((tp3))"
+    Test_Description = Test_Name & "@" & Test_Method_Stim1 & "//" & Test_Method_Stim2 & "//" & Test_Method & "//" & Test_Method_Set_Mux
+    ''Operate area'''''''''''''''''''''''''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    Call Stim1(Test_Method_Stim1)
+    Call Stim2(Test_Method_Stim2)
+    For i = 1 To REDO_TIMES
+        ClearLocalFail
+        Call Meas_AMU(Test_Method)
+        If GetLocalFail() = 0 Then Exit For
+    Next i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    Clear_Stim
+    Clear_Mux
