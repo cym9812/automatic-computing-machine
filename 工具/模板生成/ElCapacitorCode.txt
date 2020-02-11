@@ -1,0 +1,50 @@
+    '***************************************************************************************
+    ' C140=A5Q20000433/A;1-CAP_EL_AL_330u_+-20%_35V_SMD_SMD x 1
+    '***************************************************************************************
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "ElecCapacitorTest"
+    Test_Name = "C140=330u"
+    Test_Method = "5mA DC1 Delay=1ms ME=330u Tol=+-20 A=(TP131) B=(TP106)"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '***************************************************************************************
+    ' C300=A5Q20003443/A;1-CAP_EL_AL_100u_+-20%_50V_SMD_SMD x 1
+    '***************************************************************************************
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "ElecCapacitorTest"
+    Test_Name = "C300=100u"
+    Test_Method = "5mA DC1 Delay=1ms ME=100u Tol=+-20 A=(TP204) B=(TP201)"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        Call SI(Test_Method)
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************

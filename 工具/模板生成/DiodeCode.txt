@@ -1,0 +1,989 @@
+    '****************************************************************************************
+    ' H160=A5Q00004063/002;1-DIODE_LED_(INCL. LASER / IR..)_RED_ x 9
+    '****************************************************************************************
+    'H160/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H160/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP114) B=(TP116)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'H160/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H160/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP116) C=(TP114)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' H200=A5Q00004063/002;1-DIODE_LED_(INCL. LASER / IR..)_RED_ x 9
+    '****************************************************************************************
+    'H200/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H200/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP214) B=(TP218)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'H200/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H200/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP218) C=(TP214)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' H201=A5Q00004063/002;1-DIODE_LED_(INCL. LASER / IR..)_RED_ x 9
+    '****************************************************************************************
+    'H201/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H201/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP220) B=(TP221)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'H201/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H201/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP221) C=(TP220)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' H202=A5Q00004063/002;1-DIODE_LED_(INCL. LASER / IR..)_RED_ x 9
+    '****************************************************************************************
+    'H202/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H202/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP241) B=(TP243)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'H202/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H202/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP243) C=(TP241)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' H402=A5Q00004063/002;1-DIODE_LED_(INCL. LASER / IR..)_RED_ x 9
+    '****************************************************************************************
+    'H402/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H402/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP154) B=(TP411)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'H402/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H402/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP411) C=(TP154)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' H403=A5Q00004063/002;1-DIODE_LED_(INCL. LASER / IR..)_RED_ x 9
+    '****************************************************************************************
+    'H403/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H403/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP154) B=(TP413)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'H403/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "H403/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP413) C=(TP154)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V140=A5Q00024825/01;1-DIO_SIGNAL_MBD4148_100V_150mA_SOT-023_SM x 1
+    '****************************************************************************************
+    'V140/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V140/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP130) B=(TP131)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V140/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V140/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP131) C=(TP130)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V142=A5Q00007861/01;1-DIO_ZENER_BZX84_12V_+-2%_SOT-023_SMD x 2
+    '****************************************************************************************
+    'V142/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V142/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP106) B=(TP146)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V142/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V142/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP146) C=(TP106)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V150=A5Q00004550/01;1-DIODE_RECTIFIER_1.1V@1A_1000V_SM_SMA x 2
+    '****************************************************************************************
+    'V150/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V150/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP102) B=(TP101)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V150/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V150/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP101) C=(TP102)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V151=A5Q00004548/01;1-DIO_PROT-UNI-DIR_TVS_36V_100A_SMB_SMD x 9
+    '****************************************************************************************
+    'V151/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V151/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP106) B=(TP101)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V151/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V151/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP101) C=(TP106)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V152=A5Q00004550/01;1-DIODE_RECTIFIER_1.1V@1A_1000V_SM_SMA x 2
+    '****************************************************************************************
+    'V152/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V152/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP100) B=(TP101)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V152/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V152/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP101) C=(TP100)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V206=A5Q00002104/01;1-SURGE PROTECTOR_DIODE_BIDIRECTIONAL_ x 1
+    '****************************************************************************************
+    'V206/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V206/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP202) B=(TP201)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V206/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V206/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP201) C=(TP202)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V207=A5Q00009208/01;1-DIODE_SCHOTTKY_SS26_2A_60V_SMB_DO214AA_ x 1
+    '****************************************************************************************
+    'V207/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V207/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP203) B=(TP204)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V207/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V207/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP204) C=(TP203)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V208=A5Q20000905/A;1-DIO_RECTIFIER_MURS320_3A_200V_SMC_SMD x 1
+    '****************************************************************************************
+    'V208/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V208/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP203) B=(TP205)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V208/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V208/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP205) C=(TP203)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V211=A5Q20002984/01;1-DIO_SCHOTTKY_SD101_60V_+-1%_15mA_SOD-123 x 8
+    '****************************************************************************************
+    'V211/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V211/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP208) B=(TP249)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V211/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V211/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP249) C=(TP208)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V212=A5Q20002984/01;1-DIO_SCHOTTKY_SD101_60V_+-1%_15mA_SOD-123 x 8
+    '****************************************************************************************
+    'V212/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V212/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP210) B=(TP215)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V212/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V212/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP215) C=(TP210)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V217=A5Q00004548/01;1-DIO_PROT-UNI-DIR_TVS_36V_100A_SMB_SMD x 9
+    '****************************************************************************************
+    'V217/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V217/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP250) B=(TP224)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V217/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V217/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP224) C=(TP250)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V218=A5Q20002984/01;1-DIO_SCHOTTKY_SD101_60V_+-1%_15mA_SOD-123 x 8
+    '****************************************************************************************
+    'V218/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V218/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP229) B=(TP154)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V218/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V218/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP154) C=(TP229)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V220=A5Q20002984/01;1-DIO_SCHOTTKY_SD101_60V_+-1%_15mA_SOD-123 x 8
+    '****************************************************************************************
+    'V220/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V220/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP231) B=(TP234)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V220/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V220/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP234) C=(TP231)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V224=A5Q00004548/01;1-DIO_PROT-UNI-DIR_TVS_36V_100A_SMB_SMD x 9
+    '****************************************************************************************
+    'V224/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V224/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP250) B=(TP247)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V224/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V224/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP247) C=(TP250)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V304=A5Q00004548/01;1-DIO_PROT-UNI-DIR_TVS_36V_100A_SMB_SMD x 9
+    '****************************************************************************************
+    'V304/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V304/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP201) B=(TP309)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V304/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V304/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP309) C=(TP201)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V305=A5Q00004548/01;1-DIO_PROT-UNI-DIR_TVS_36V_100A_SMB_SMD x 9
+    '****************************************************************************************
+    'V305/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V305/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP201) B=(TP310)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V305/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V305/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP310) C=(TP201)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
+    '****************************************************************************************
+    ' V401=A5Q00007861/01;1-DIO_ZENER_BZX84_12V_+-2%_SOT-023_SMD x 2
+    '****************************************************************************************
+    'V401/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V401/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=(TP201) B=(TP400)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    'V401/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "V401/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=(TP400) C=(TP201)"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '**********************************************************************
+    'show Project test result
+    Call subGetProjectResult(Test_Project_name)
+    '**********************************************************************
