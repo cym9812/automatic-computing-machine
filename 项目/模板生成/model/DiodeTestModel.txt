@@ -1,0 +1,39 @@
+    '****************************************************************************************
+    ' (name)=(description)
+    '****************************************************************************************
+    '(name)/F
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "(name)/F"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+    SI "2mA DC=1 VMax=2.5V Delay=100mS MV=630mV Tol=+-5 A=((tp1)) B=((tp2))"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
+    '(name)/R
+    'INIT test variables''''''''''''''''''
+    Test_Project_name = "DiodeTest"
+    Test_Name = "(name)/R"
+    Test_Description = Test_Name & "@" & Test_Method
+    'Operate area''''''''''''''''''''''''''
+    Call Text(Test_Name)
+    For temp_i = 1 To REDO_TIMES
+        SV "1.5V DC2 Delay=1ms MV=1.5V  Tol=+-5 A=((tp2)) C=((tp1))"
+        If GetLocalFail() = 0 Then
+            Exit For
+        Else
+            If temp_i < REDO_TIMES Then
+                    ClearLocalFail
+            End If
+        End If
+    Next temp_i
+    Call GetTestResultAndTestValue(Test_Project_name, Test_Name, Test_Description, "0")
